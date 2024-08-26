@@ -6,12 +6,16 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 alias ll="eza -l"
-alias la="eza -la"
+alias lg="lazygit"
 alias v="nvim"
 alias ca="chezmoi apply"
 
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 eval "$(zoxide init zsh --cmd 'cd')"
+
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
 
 # history setup
 HISTFILE=$HOME/.zhistory
