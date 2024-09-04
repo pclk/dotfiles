@@ -17,6 +17,8 @@ export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 
+export XDG_CONFIG_HOME="$HOME/.config"
+export EDITOR="nvim"
 # history setup
 HISTFILE=$HOME/.zhistory
 SAVEHIST=1000
