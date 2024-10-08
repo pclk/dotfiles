@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# doesn't work idk why lol
+
+# Create windows.
+tmux new-window -k -t t:1 -n editor
+tmux new-window -k -t t:2 -n server
+
+# Window "editor"
+
+tmux send-keys -t t:1 nvim C-m
+
+# Window "server"

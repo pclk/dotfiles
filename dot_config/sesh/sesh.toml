@@ -1,0 +1,36 @@
+[default_session]
+startup_command = "nvim"
+
+[[session]]
+name = "tmux"
+path = "~/.local/share/chezmoi/dot_config/tmux/"
+startup_command = "nvim tmux.conf"
+
+[[session]]
+name = "aerospace 🛫"
+path = "~/.local/share/chezmoi/dot_config/aerospace/"
+startup_command = "nvim aerospace.toml"
+
+[[session]]
+name = "alacritty 😹"
+path = "~/.local/share/chezmoi/dot_config/alacritty/"
+startup_command = "nvim alacritty.toml"
+
+[[session]]
+name = "sesh"
+path = "~/.local/share/chezmoi/dot_config/sesh/"
+startup_command = "nvim sesh.toml"
+
+[[session]]
+name = "nvim plugins"
+path = "~/.local/share/chezmoi/dot_config/nvim/lua/plugins/"
+
+[[session]]
+name = "chezmoi"
+path = "~/.local/share/chezmoi/"
+startup_command = "ll"
+
+[[session]]
+name = "Repo"
+path = "~/Repo"
+startup_command = "ll"

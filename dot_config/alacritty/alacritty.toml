@@ -3,9 +3,6 @@ import = ["~/.config/alacritty/themes/themes/tokyo-night.toml"]
 TERM = "xterm-256color"
 
 [window]
-# padding.x = 10
-# padding.y = 10
-
 dimensions.columns = 80
 dimensions.lines = 80
 
@@ -21,4 +18,75 @@ option_as_alt = "Both"
 [font]
 normal.family = "MesloLGS Nerd Font Mono"
 
-size = 18
+size = 20
+
+# Create new tmux winow
+[[keyboard.bindings]]
+chars = "\u0001c"
+key = "T"
+mods = "Command"
+
+# Close current tmux window
+[[keyboard.bindings]]
+chars = "\u0001x"
+key = "W"
+mods = "Command"
+
+
+# Open sesh
+[[keyboard.bindings]]
+chars = "\u0001k"
+key = "K"
+mods = "Command"
+
+# Last sessiot
+[[keyboard.bindings]]
+chars = "\u0001l"
+key = "L"
+mods = "Command"
+
+# Command + number to select windows
+[[keyboard.bindings]]
+chars = "\u00011"
+key = "Key1"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00012"
+key = "Key2"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00013"
+key = "Key3"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00014"
+key = "Key4"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00015"
+key = "Key5"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00016"
+key = "Key6"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00017"
+key = "Key7"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00018"
+key = "Key8"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00019"
+key = "Key9"
+mods = "Command"
