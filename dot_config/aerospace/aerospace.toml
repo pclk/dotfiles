@@ -88,10 +88,10 @@ alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-alt-h = 'focus left'
-alt-j = 'focus down'
-alt-k = 'focus up'
-alt-l = 'focus right'
+# alt-h = 'focus left'
+# alt-j = 'focus down'
+# alt-k = 'focus up'
+# alt-l = 'focus right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 alt-shift-h = 'move left'
@@ -119,7 +119,7 @@ alt-e = 'workspace E'
 alt-s = 'workspace S'
 alt-t = 'workspace T'
 alt-o = 'workspace O'
-alt-f = 'workspace F'
+alt-i = 'workspace I'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -131,13 +131,6 @@ alt-shift-6 = 'move-node-to-workspace 6'
 alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
-alt-shift-a = 'move-node-to-workspace A'
-alt-shift-v = 'move-node-to-workspace V'
-alt-shift-e = 'move-node-to-workspace E'
-alt-shift-s = 'move-node-to-workspace S'
-alt-shift-t = 'move-node-to-workspace T'
-alt-shift-o = 'move-node-to-workspace O'
-alt-shift-f = 'move-node-to-workspace F'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -190,4 +183,4 @@ run = "move-node-to-workspace O"
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
-run = "move-node-to-workspace F"
+run = "move-node-to-workspace I"
