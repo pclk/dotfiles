@@ -1,0 +1,17 @@
+{
+  "filterLinkHints": true,
+  "keyMappings": "map h goBack\nmap l goForward\nmap H previousTab \nmap L nextTab\nunmap J\nunmap K\nmap s LinkHints.activateMode\nmap S LinkHints.activateModeToOpenInNewForegroundTab\nmap f LinkHints.activateModeToOpenInNewTab\nunmap F\nmap ys LinkHints.activateModeToCopyLinkUrl\n\n# usually better to use Vomnibar.acte\nmap t Vomnibar.activateTabSelection\nmap T createTab\n\n# remap\nmap e visitPreviousTab\nmap ^ firstTab\nmap $ lastTab\nunmap g0\nunmap g$\n\n# find is buggy\nunmap / \nunmap n\nunmap N\n\n# better to use command\nunmap x\nunmap r\n\n# doesnt work and yt better\nunmap p\nunmap P\n\n# dont use\nunmap i\nunmap v\n\n# i dont use bookmarks\nunmap b\nunmap B",
+  "linkHintCharacters": "shtareni",
+  "grabBackFocus": true,
+  "settingsVersion": "2.1.2",
+  "exclusionRules": [
+    {
+      "passKeys": "",
+      "pattern": "https?://app.diagrams.net/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://my.glove80.com/*"
+    }
+  ]
+}
