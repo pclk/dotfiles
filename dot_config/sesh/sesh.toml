@@ -34,3 +34,8 @@ startup_command = "ll"
 name = "Repo"
 path = "~/Repo"
 startup_command = "ll"
+
+[[session]]
+name = "Home"
+path = "~/"
+startup_command = "ll"

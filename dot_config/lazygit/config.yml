@@ -2,3 +2,6 @@ git:
   paging:
     colorArg: always
     pager: delta --dark --paging=never
+services:
+  'work': 'github:github.com'
+  'home': 'github:github.com'

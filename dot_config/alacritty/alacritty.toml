@@ -22,71 +22,76 @@ size = 20
 
 # Create new tmux winow
 [[keyboard.bindings]]
-chars = "\u0001c"
+chars = "\u0002c"
 key = "T"
 mods = "Command"
 
 # Close current tmux window
 [[keyboard.bindings]]
-chars = "\u0001x"
+chars = "\u0002x"
 key = "W"
 mods = "Command"
 
-
 # Open sesh
 [[keyboard.bindings]]
-chars = "\u0001k"
+chars = "\u0002k"
 key = "K"
 mods = "Command"
 
-# Last sessiot
+# enter copy mode
 [[keyboard.bindings]]
-chars = "\u0001l"
+chars = "\u0002["
+key = "Y"
+mods = "Command"
+
+# Last session
+[[keyboard.bindings]]
+chars = "\u0002l"
 key = "L"
 mods = "Command"
 
 # Command + number to select windows
 [[keyboard.bindings]]
-chars = "\u00011"
+chars = "\u00021"
 key = "Key1"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00012"
+chars = "\u00022"
 key = "Key2"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00013"
+chars = "\u00023"
 key = "Key3"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00014"
+chars = "\u00024"
 key = "Key4"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00015"
+chars = "\u00025"
 key = "Key5"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00016"
+chars = "\u00026"
 key = "Key6"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00017"
+chars = "\u00027"
 key = "Key7"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00018"
+chars = "\u00028"
 key = "Key8"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u00019"
+chars = "\u00029"
 key = "Key9"
 mods = "Command"

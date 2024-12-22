@@ -1,5 +1,20 @@
 # dotfiles
 
+## Installation
+- kitty (OSX & Linux)
+```
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+```
+- kitty colorscheme (tokyonight)
+```
+kitty +kitten themes
+```
+
+- kitty font (MesloLGS Nerd Font Mono)
+```
+kitten choose-font
+```
+
 ## Tools
 
 - `aerospace`
