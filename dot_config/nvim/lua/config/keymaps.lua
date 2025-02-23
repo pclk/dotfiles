@@ -46,3 +46,8 @@ vim.keymap.del("n", "<c-_>")
 
 -- no need changelogs of lazyvim
 vim.keymap.del("n", "<leader>L")
+
+-- codecompanion
+vim.keymap.set({ "n", "v" }, "<leader>h", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+vim.keymap.set("v", "a", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })

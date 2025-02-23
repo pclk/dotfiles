@@ -7,3 +7,16 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set({ "n", "o" }, "<ESC>", "<Nop>", { buffer = true })
   end,
 })
+
+-- The following is not needed because AvanteChat includes no search and replace.
+-- vim.api.nvim_create_autocmd("User", {
+--   pattern = "DeleteSystemPrompt",
+--   callback = function()
+--     require("avante.config").override({ system_prompt = "" })
+--     vim.notify("System prompt deleted! 🍿", vim.log.levels.INFO)
+--   end,
+-- })
+--
+-- vim.keymap.set("n", "<leader>ad", function()
+--   vim.api.nvim_exec_autocmds("User", { pattern = "DeleteSystemPrompt" })
+-- end, { desc = "Delete System Prompt" })
