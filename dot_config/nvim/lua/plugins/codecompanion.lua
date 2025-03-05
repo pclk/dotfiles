@@ -1,3 +1,5 @@
+-- remove {} bindings from chat
+
 return {
   "olimorris/codecompanion.nvim",
   dependencies = {
@@ -36,6 +38,14 @@ return {
         },
         intro_message = "Hi",
         start_in_insert_mode = true, -- Open the chat buffer in insert mode?
+        keymaps = {
+          send = {
+            modes = { n = "<C-s>", i = "<C-s>" },
+          },
+          close = {
+            modes = { n = "<C-w>", i = "<C-$>" },
+          },
+        },
       },
     },
 

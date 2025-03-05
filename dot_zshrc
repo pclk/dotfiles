@@ -30,6 +30,9 @@ export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 
+# WezTerm
+export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
+
 # Fortran configuration
 export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
 export CFLAGS="-I/opt/homebrew/opt/libomp/include -Xpreprocessor -fopenmp"

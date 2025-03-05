@@ -8,6 +8,15 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+--- disable diagnostic for .env and md files
+local group = vim.api.nvim_create_augroup("__env", { clear = true })
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = { ".env", "*.md" },
+  group = group,
+  callback = function(_)
+    vim.diagnostic.enable(false)
+  end,
+})
 -- The following is not needed because AvanteChat includes no search and replace.
 -- vim.api.nvim_create_autocmd("User", {
 --   pattern = "DeleteSystemPrompt",

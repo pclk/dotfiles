@@ -6,7 +6,6 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "s", "<nop>")
 vim.keymap.set("n", "r", "<nop>")
 vim.keymap.set("n", "R", "<nop>")
 
@@ -51,3 +50,6 @@ vim.keymap.del("n", "<leader>L")
 vim.keymap.set({ "n", "v" }, "<leader>h", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "<leader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
 vim.keymap.set("v", "a", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+
+--buffer
+vim.keymap.set("n", "<leader>.", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
