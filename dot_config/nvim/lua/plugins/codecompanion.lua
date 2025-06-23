@@ -5,6 +5,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
+    "Davidyz/VectorCode",
     {
       "saghen/blink.cmp",
       opts = {
@@ -19,11 +20,11 @@ return {
   -- keymappings are at keymaps.lua, because need modes
   opts = {
 
-    opts = {
-      system_prompt = function(opts)
-        return "Instead of using bullet points, always type in full, cohesive, long and informative paragraphs."
-      end,
-    },
+    -- opts = {
+    --   system_prompt = function(opts)
+    --     return "Instead of using bullet points, always type in full, cohesive, long and informative paragraphs."
+    --   end,
+    -- },
 
     display = {
       action_palette = {
@@ -54,13 +55,7 @@ return {
         return require("codecompanion.adapters").extend("gemini", {
           schema = {
             model = {
-              default = "gemini-2.0-flash-thinking-exp-01-21",
-              choices = {
-                "gemini-2.0-flash-thinking-exp-01-21",
-                "gemini-2.0-pro-exp-02-05",
-                "gemini-2.0-flash-lite-preview-02-05",
-                "gemini-2.0-flash",
-              },
+              default = "gemini-2.5-pro-exp-03-25",
             },
           },
         })
@@ -69,7 +64,7 @@ return {
 
     strategies = {
       chat = {
-        adapter = "anthropic",
+        adapter = "gemini",
         keymaps = {
           send = {
             modes = { n = "<C-s>", i = "<C-s>" },
@@ -78,6 +73,18 @@ return {
             modes = { n = "<C-w>", i = "<C-$>" },
           },
         },
+        -- slash_commands = {
+        --   codebase = function()
+        --     -- The require happens only when the slash command is potentially being looked up or executed
+        --     return require("vectorcode.integrations").codecompanion.chat.make_slash_command()
+        --   end,
+        -- },
+        -- tools = {
+        --   vectorcode = {
+        --     description = "Run VectorCode to retrieve the project context.",
+        --     callback = require("vectorcode.integrations").codecompanion.chat.make_tool(),
+        --   },
+        -- },
       },
     },
 
@@ -222,4 +229,21 @@ Do not include any introductory or concluding remarks in your response.]],
       },
     },
   },
+  config = function(_, opts)
+    -- This function runs after dependencies (VectorCode) are loaded.
+    -- Now it's safer to require vectorcode integrations.
+
+    -- opts.strategies.chat.slash_commands = opts.strategies.chat.slash_commands or {}
+    -- opts.strategies.chat.slash_commands.codebase =
+    --   require("vectorcode.integrations").codecompanion.chat.make_slash_command()
+
+    opts.strategies.chat.tools = opts.strategies.chat.tools or {}
+    opts.strategies.chat.tools.vectorcode = {
+      description = "Run VectorCode to retrieve the project context.",
+      callback = require("vectorcode.integrations").codecompanion.chat.make_tool(),
+    }
+
+    -- Now, setup CodeCompanion with the fully constructed opts table
+    require("codecompanion").setup(opts)
+  end,
 }

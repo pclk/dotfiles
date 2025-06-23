@@ -16,6 +16,7 @@ vim.keymap.set("i", "<C-c>", "<esc>", { remap = true })
 vim.keymap.set("i", "<C-a>", "<esc>I", { remap = true })
 vim.keymap.set("i", "<C-e>", "<esc>A", { remap = true })
 vim.keymap.set("i", "<C-o>", "<esc>o", { remap = true })
+vim.keymap.set("i", "<M-BS>", "<C-w>", { remap = true }) -- macOS Option-Backspace
 
 -- move lines remap to alt-j and alt-k.
 vim.keymap.set("n", "∆", "<cmd>m .+1<cr>==", { remap = true })
@@ -47,9 +48,8 @@ vim.keymap.del("n", "<c-_>")
 vim.keymap.del("n", "<leader>L")
 
 -- codecompanion
-vim.keymap.set({ "n", "v" }, "<leader>h", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+-- vim.keymap.set({ "n", "v" }, "<leader>h", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "<leader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
-vim.keymap.set("v", "a", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
 
 --buffer
 vim.keymap.set("n", "<leader>.", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
