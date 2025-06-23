@@ -1,0 +1,225 @@
+{
+  "profiles" : [
+    {
+      "id" : "894AD197-517A-48DB-B558-65DC35158443",
+      "name" : "Default",
+      "workspaces" : [
+        {
+          "appToFocus" : {
+            "bundleIdentifier" : "com.github.wez.wezterm",
+            "iconPath" : "/Applications/WezTerm.app/Contents/Resources/terminal.icns",
+            "name" : "WezTerm"
+          },
+          "apps" : [
+            {
+              "bundleIdentifier" : "com.github.wez.wezterm",
+              "iconPath" : "/Applications/WezTerm.app/Contents/Resources/terminal.icns",
+              "name" : "WezTerm"
+            }
+          ],
+          "display" : "Built-in Retina Display",
+          "id" : "6DE72A40-23AD-42DB-990B-4CE2321A2F53",
+          "name" : "Terminal",
+          "shortcut" : "opt+t",
+          "symbolIconName" : "apple.terminal"
+        },
+        {
+          "apps" : [
+            {
+              "bundleIdentifier" : "app.zen-browser.zen",
+              "iconPath" : "/Applications/Zen Browser.app/Contents/Resources/firefox.icns",
+              "name" : "Zen Browser"
+            }
+          ],
+          "display" : "Built-in Retina Display",
+          "id" : "0ABBDD49-8CFC-437A-B685-A65F60661CE4",
+          "name" : "Browser",
+          "shortcut" : "opt+s",
+          "symbolIconName" : "globe"
+        },
+        {
+          "appToFocus" : {
+            "bundleIdentifier" : "com.apple.finder",
+            "iconPath" : "/System/Library/CoreServices/Finder.app/Contents/Resources/Finder.icns",
+            "name" : "Finder"
+          },
+          "apps" : [
+            {
+              "bundleIdentifier" : "com.apple.finder",
+              "iconPath" : "/System/Library/CoreServices/Finder.app/Contents/Resources/Finder.icns",
+              "name" : "Finder"
+            }
+          ],
+          "display" : "Built-in Retina Display",
+          "id" : "B638E316-6ECE-4432-9DD0-7A694B90DC1C",
+          "name" : "Finder",
+          "shortcut" : "opt+i",
+          "symbolIconName" : "folder"
+        },
+        {
+          "appToFocus" : {
+            "bundleIdentifier" : "com.apple.Music",
+            "iconPath" : "/System/Applications/Music.app/Contents/Resources/AppIcon.icns",
+            "name" : "Music"
+          },
+          "apps" : [
+            {
+              "bundleIdentifier" : "com.apple.Music",
+              "iconPath" : "/System/Applications/Music.app/Contents/Resources/AppIcon.icns",
+              "name" : "Music"
+            }
+          ],
+          "display" : "Built-in Retina Display",
+          "id" : "7DCC5A9D-8887-4848-B16F-EFDC017E895F",
+          "name" : "Music",
+          "shortcut" : "opt+v",
+          "symbolIconName" : "music.note"
+        },
+        {
+          "appToFocus" : {
+            "bundleIdentifier" : "com.obsproject.obs-studio",
+            "iconPath" : "/Applications/OBS.app/Contents/Resources/AppIcon.icns",
+            "name" : "OBS Studio"
+          },
+          "apps" : [
+            {
+              "bundleIdentifier" : "com.obsproject.obs-studio",
+              "iconPath" : "/Applications/OBS.app/Contents/Resources/AppIcon.icns",
+              "name" : "OBS Studio"
+            }
+          ],
+          "display" : "Built-in Retina Display",
+          "id" : "5EE3418C-353A-4A72-AD00-54031B2DDABD",
+          "name" : "OBS",
+          "shortcut" : "opt+o"
+        },
+        {
+          "apps" : [
+
+          ],
+          "display" : "Built-in Retina Display",
+          "id" : "740BE2DF-4246-4E26-AA8F-8B7F222CB665",
+          "name" : "Slot 1",
+          "shortcut" : "opt+1",
+          "symbolIconName" : "1.circle"
+        },
+        {
+          "apps" : [
+
+          ],
+          "display" : "Built-in Retina Display",
+          "id" : "F201D134-1615-41E0-92A7-A9DA99F88C86",
+          "name" : "Slot 2",
+          "shortcut" : "opt+2",
+          "symbolIconName" : "2.circle"
+        },
+        {
+          "apps" : [
+
+          ],
+          "display" : "Built-in Retina Display",
+          "id" : "9C0563B8-C0CE-460F-9A87-F5388E2AAF4E",
+          "name" : "Slot 3",
+          "shortcut" : "opt+3",
+          "symbolIconName" : "3.circle"
+        },
+        {
+          "appToFocus" : {
+            "bundleIdentifier" : "company.thebrowser.Browser",
+            "iconPath" : "/Applications/Arc.app/Contents/Resources/AppIcon.icns",
+            "name" : "Arc"
+          },
+          "apps" : [
+            {
+              "bundleIdentifier" : "company.thebrowser.Browser",
+              "iconPath" : "/Applications/Arc.app/Contents/Resources/AppIcon.icns",
+              "name" : "Arc"
+            },
+            {
+              "bundleIdentifier" : "com.mongodb.compass",
+              "iconPath" : "/Applications/MongoDB Compass.app/Contents/Resources/electron.icns",
+              "name" : "MongoDB Compass"
+            }
+          ],
+          "display" : "Built-in Retina Display",
+          "id" : "416E556A-BE61-4195-9DE7-239CF8B7BA80",
+          "name" : "browser2",
+          "shortcut" : "opt+c"
+        },
+        {
+          "appToFocus" : {
+            "bundleIdentifier" : "com.apple.iWork.Pages",
+            "iconPath" : "/Applications/Pages.app/Contents/Resources/AppIcon.icns",
+            "name" : "Pages"
+          },
+          "apps" : [
+            {
+              "bundleIdentifier" : "com.microsoft.Word",
+              "iconPath" : "/Applications/Microsoft Word.app/Contents/Resources/MSWD.icns",
+              "name" : "Microsoft Word"
+            },
+            {
+              "bundleIdentifier" : "com.apple.iWork.Pages",
+              "iconPath" : "/Applications/Pages.app/Contents/Resources/AppIcon.icns",
+              "name" : "Pages"
+            }
+          ],
+          "display" : "Built-in Retina Display",
+          "id" : "54C6A822-90DC-4A04-AAF9-9485319616E5",
+          "name" : "Word",
+          "shortcut" : "opt+w"
+        },
+        {
+          "appToFocus" : {
+            "bundleIdentifier" : "com.blackmagic-design.DaVinciResolveLite",
+            "iconPath" : "/Applications/DaVinci Resolve.app/Contents/Resources/Resolve.icns",
+            "name" : "DaVinci Resolve"
+          },
+          "apps" : [
+            {
+              "bundleIdentifier" : "com.blackmagic-design.DaVinciResolveLite",
+              "iconPath" : "/Applications/DaVinci Resolve.app/Contents/Resources/Resolve.icns",
+              "name" : "DaVinci Resolve"
+            }
+          ],
+          "display" : "Built-in Retina Display",
+          "id" : "A790F935-352A-4AE1-AAE2-A7EE4635893C",
+          "name" : "Davinci",
+          "shortcut" : "opt+d"
+        },
+        {
+          "appToFocus" : {
+            "bundleIdentifier" : "com.apple.mail",
+            "iconPath" : "/System/Applications/Mail.app/Contents/Resources/ApplicationIcon.icns",
+            "name" : "Mail"
+          },
+          "apps" : [
+            {
+              "bundleIdentifier" : "com.apple.mail",
+              "iconPath" : "/System/Applications/Mail.app/Contents/Resources/ApplicationIcon.icns",
+              "name" : "Mail"
+            }
+          ],
+          "display" : "Built-in Retina Display",
+          "id" : "1B665D33-CE13-418B-9A9D-69D5DF4565C0",
+          "name" : "Mail",
+          "shortcut" : "opt+m"
+        },
+        {
+          "apps" : [
+            {
+              "bundleIdentifier" : "com.postmanlabs.mac",
+              "iconPath" : "/Applications/Postman.app/Contents/Resources/app.icns",
+              "name" : "Postman"
+            }
+          ],
+          "display" : "Built-in Retina Display",
+          "id" : "CA9977CB-0C07-4946-913A-C2994856A44B",
+          "name" : "postman",
+          "shortcut" : "opt+a"
+        }
+      ]
+    }
+  ],
+  "selectedProfileId" : "894AD197-517A-48DB-B558-65DC35158443"
+}
