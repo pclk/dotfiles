@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if ! command -v zoxide >/dev/null 2>&1; then
+  echo "zoxide is not installed"
+  read -r -p "Press enter to close..."
+  exit 1
+fi
+
+if ! command -v fzf >/dev/null 2>&1; then
+  echo "fzf is not installed"
+  read -r -p "Press enter to close..."
+  exit 1
+fi
+
+preview_cmd='ls -la {}'
+if command -v eza >/dev/null 2>&1; then
+  preview_cmd='eza -la --icons --git --color=always {}'
+fi
+
+dir="$(
+  zoxide query -l |
+    fzf \
+      --prompt='kitty session> ' \
+      --reverse \
+      --height=80% \
+      --preview="$preview_cmd 2>/dev/null"
+)" || exit 0
+
+[[ -z "${dir:-}" ]] && exit 0
+
+name="$(basename "$dir")"
+
+kitten @ launch \
+  --type=tab \
+  --cwd "$dir" \
+  --tab-title "$name" \
+  /usr/bin/zsh

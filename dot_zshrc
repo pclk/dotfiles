@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 #-------------------------------------------------------------------------------
-# Completion System - Linux-safe
+# Completion System - Linux/CachyOS safe
 #-------------------------------------------------------------------------------
 autoload -Uz compinit
 
@@ -21,42 +21,58 @@ fi
 #-------------------------------------------------------------------------------
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR="nvim"
+export VISUAL="nvim"
 export DISABLE_AUTO_TITLE=true
 
+# Keep tools that inspect $SHELL aligned with the shell we actually want.
+export SHELL="/usr/bin/zsh"
+
+# Local binaries
+export PATH="$HOME/.local/bin:$PATH"
+
+# Go
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
-export PATH="$PATH:$GOBIN"
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$GOBIN:$PATH"
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
 #-------------------------------------------------------------------------------
 # Aliases
 #-------------------------------------------------------------------------------
-alias ll="eza -l"
+alias ll="eza -l --icons --git"
+alias la="eza -la --icons --git"
+alias tree="eza --tree --icons"
 alias h="nvim"
 alias c="chezmoi"
+alias ccd='cd "$(chezmoi source-path)"'
 alias s="source ~/.zshrc"
 alias lg="lazygit"
-alias -g jqi="jq -R '. as \$line | try (fromjson) catch (\$line + \"\n\" | stderr | empty)';"
 
 #-------------------------------------------------------------------------------
 # History Configuration
 #-------------------------------------------------------------------------------
 HISTFILE="$HOME/.zhistory"
-SAVEHIST=1000
-HISTSIZE=999
+SAVEHIST=10000
+HISTSIZE=10000
 
 setopt share_history
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
+setopt hist_ignore_space
 setopt hist_verify
+setopt append_history
+setopt inc_append_history
 
 #-------------------------------------------------------------------------------
 # Key Bindings
 #-------------------------------------------------------------------------------
 globalias() {
-   zle _expand_alias
-   zle expand-word
-   zle self-insert
+  zle _expand_alias
+  zle expand-word
+  zle self-insert
 }
 zle -N globalias
 
@@ -65,15 +81,11 @@ bindkey -M viins " " globalias
 
 bindkey -M emacs "^ " magic-space
 bindkey -M viins "^ " magic-space
-
 bindkey -M isearch " " magic-space
 
 #-------------------------------------------------------------------------------
 # Lazy Loading Functions
 #-------------------------------------------------------------------------------
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
 pyenv() {
   if command -v pyenv >/dev/null 2>&1; then
     eval "$(command pyenv init -)"
@@ -86,6 +98,7 @@ pyenv() {
 
 conda() {
   local conda_bin="$HOME/miniconda3/bin/conda"
+
   if [[ -x "$conda_bin" ]]; then
     unfunction "$0"
     export PATH="$HOME/miniconda3/bin:$PATH"
@@ -115,10 +128,13 @@ if command -v zoxide >/dev/null 2>&1; then
   eval "$(zoxide init zsh --cmd 'cd')"
 fi
 
+# Powerlevel10k path differs depending on package source.
 if [[ -r /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme ]]; then
   source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 elif [[ -r /usr/share/powerlevel10k/powerlevel10k.zsh-theme ]]; then
   source /usr/share/powerlevel10k/powerlevel10k.zsh-theme
+elif [[ -r /usr/share/zsh/powerlevel10k/powerlevel10k.zsh-theme ]]; then
+  source /usr/share/zsh/powerlevel10k/powerlevel10k.zsh-theme
 fi
 
 [[ -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
