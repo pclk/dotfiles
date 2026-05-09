@@ -164,3 +164,7 @@ if [[ -f "$HOME/.zshrc.secrets" ]]; then
 fi
 
 
+
+# AI coding
+alias oc='opencode'
+alias oci='opencode /init'
