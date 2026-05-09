@@ -1,6 +1,3 @@
-zmodload zsh/zprof
-
-
 #-------------------------------------------------------------------------------
 # Powerlevel10k Instant Prompt
 #-------------------------------------------------------------------------------
@@ -9,10 +6,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 #-------------------------------------------------------------------------------
-# Completion System
+# Completion System - Linux-safe
 #-------------------------------------------------------------------------------
 autoload -Uz compinit
-if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+
+if [[ ! -f ~/.zcompdump || $(date +'%j') != $(date -r ~/.zcompdump +'%j') ]]; then
   compinit
 else
   compinit -C
@@ -25,20 +23,10 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR="nvim"
 export DISABLE_AUTO_TITLE=true
 
-# Go configuration
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOBIN
-
-# WezTerm
-export PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
-
-# Fortran configuration
-export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
-export CFLAGS="-I/opt/homebrew/opt/libomp/include -Xpreprocessor -fopenmp"
-export LDFLAGS="-L/opt/homebrew/opt/libomp/lib -lomp"
-export CPPFLAGS="-I/opt/homebrew/opt/openblas/include"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/openblas/lib/pkgconfig"
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export PATH="$PATH:$GOBIN"
+export PATH="$PATH:$HOME/.local/bin"
 
 #-------------------------------------------------------------------------------
 # Aliases
@@ -47,14 +35,16 @@ alias ll="eza -l"
 alias h="nvim"
 alias c="chezmoi"
 alias s="source ~/.zshrc"
+alias lg="lazygit"
 alias -g jqi="jq -R '. as \$line | try (fromjson) catch (\$line + \"\n\" | stderr | empty)';"
 
 #-------------------------------------------------------------------------------
 # History Configuration
 #-------------------------------------------------------------------------------
-HISTFILE=$HOME/.zhistory
+HISTFILE="$HOME/.zhistory"
 SAVEHIST=1000
 HISTSIZE=999
+
 setopt share_history
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
@@ -63,7 +53,6 @@ setopt hist_verify
 #-------------------------------------------------------------------------------
 # Key Bindings
 #-------------------------------------------------------------------------------
-# Expand alias function
 globalias() {
    zle _expand_alias
    zle expand-word
@@ -71,74 +60,75 @@ globalias() {
 }
 zle -N globalias
 
-# Space expands all aliases, including global
 bindkey -M emacs " " globalias
 bindkey -M viins " " globalias
 
-# Control-space to make a normal space
 bindkey -M emacs "^ " magic-space
 bindkey -M viins "^ " magic-space
 
-# Normal space during searches
 bindkey -M isearch " " magic-space
 
 #-------------------------------------------------------------------------------
 # Lazy Loading Functions
 #-------------------------------------------------------------------------------
-# PyEnv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+
 pyenv() {
+  if command -v pyenv >/dev/null 2>&1; then
     eval "$(command pyenv init -)"
     pyenv "$@"
+  else
+    echo "pyenv is not installed"
+    return 127
+  fi
 }
 
-# Conda
 conda() {
+  local conda_bin="$HOME/miniconda3/bin/conda"
+  if [[ -x "$conda_bin" ]]; then
     unfunction "$0"
-    export PATH="/Users/siewweiheng/miniconda3/bin:$PATH"
-    eval "$('/Users/siewweiheng/miniconda3/bin/conda' 'shell.zsh' 'hook')"
-    $0 "$@"
+    export PATH="$HOME/miniconda3/bin:$PATH"
+    eval "$("$conda_bin" shell.zsh hook)"
+    "$0" "$@"
+  else
+    echo "conda is not installed at $conda_bin"
+    return 127
+  fi
 }
 
-# kubectl
 kubectl() {
+  if command -v kubectl >/dev/null 2>&1; then
     unfunction "$0"
     source <(command kubectl completion zsh)
-    $0 "$@"
+    "$0" "$@"
+  else
+    echo "kubectl is not installed"
+    return 127
+  fi
 }
 
 #-------------------------------------------------------------------------------
-# External Tools and Plugins
+# External Tools and Plugins - CachyOS / Arch
 #-------------------------------------------------------------------------------
-eval "$(zoxide init zsh --cmd 'cd')"
-source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-#-------------------------------------------------------------------------------
-# Path Updates
-#-------------------------------------------------------------------------------
-export PATH="$PATH:/Users/siewweiheng/.local/bin"
-export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
-
-#-------------------------------------------------------------------------------
-# Google Cloud SDK
-#-------------------------------------------------------------------------------
-if [ -f '/Users/siewweiheng/Downloads/google-cloud-sdk/path.zsh.inc' ]; then 
-  . '/Users/siewweiheng/Downloads/google-cloud-sdk/path.zsh.inc'
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh --cmd 'cd')"
 fi
 
-if [ -f '/Users/siewweiheng/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then 
-  . '/Users/siewweiheng/Downloads/google-cloud-sdk/completion.zsh.inc'
+if [[ -r /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme ]]; then
+  source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+elif [[ -r /usr/share/powerlevel10k/powerlevel10k.zsh-theme ]]; then
+  source /usr/share/powerlevel10k/powerlevel10k.zsh-theme
 fi
+
+[[ -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
+  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+[[ -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && \
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #-------------------------------------------------------------------------------
 # Additional Configuration Files
 #-------------------------------------------------------------------------------
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-if [[ -f ~/.secrets.zsh ]]; then
-  source ~/.secrets.zsh
-fi
-
-zprof
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+[[ -f ~/.secrets.zsh ]] && source ~/.secrets.zsh
