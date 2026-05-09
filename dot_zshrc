@@ -156,3 +156,11 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+#
+#
+# Local secrets, not managed by chezmoi
+if [[ -f "$HOME/.zshrc.secrets" ]]; then
+  source "$HOME/.zshrc.secrets"
+fi
+
+
